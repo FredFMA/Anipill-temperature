@@ -2,18 +2,21 @@ library(tidyverse)
 
 
 #read the data with impor dataset
+Anipill <- read.csv("Body temp fredrik anipill test.csv")
 
-#create ne datetime column based on date and hour:
-Anipill$datetime <- paste(Anipill$`DateDD/MM/YYYY`, Anipill$Hour)
 
 #View and tidy names:
 head(Anipill)
 summary(Anipill)
-names(Anipill)[4] <- c("Temp")
+names(Anipill) <- c("Sample", 'date', 'hour', 'Temp')
+head(Anipill)
+
+#create ne datetime column based on date and hour:
+Anipill$datetime <- paste(Anipill$date, Anipill$hour)
+head(Anipill)
 
 #Format datetime from character to dttm format:
 Anipill$datetime <- as.POSIXct(strptime(Anipill$datetime, format= "%d/%m/%Y %H:%M:%S"))
-
 
 #Generate manual sleep/nosleep score:
 sl <- data.frame("Sleep" = c(1:272))

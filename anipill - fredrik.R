@@ -1,11 +1,11 @@
 library(tidyverse)
 
 
-#read the data with impor dataset
+#read the data with import dataset
 Anipill <- read.csv("Body temp fredrik anipill test.csv")
 
 
-#View and tidy names:
+#View and tidy names (I'd rather write this instead):
 head(Anipill)
 summary(Anipill)
 names(Anipill) <- c("Sample", 'date', 'hour', 'Temp')

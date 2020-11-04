@@ -5,13 +5,17 @@ library(tidyverse)
 Anipill <- read.csv("Body temp fredrik anipill test.csv")
 
 
+
 #View and tidy names (I'd rather write this instead):
+
+#View and tidy names (try to make error here):
+
 head(Anipill)
 summary(Anipill)
 names(Anipill) <- c("Sample", 'date', 'hour', 'Temp')
 head(Anipill)
 
-#create ne datetime column based on date and hour:
+#create datetime column based on date and hour:
 Anipill$datetime <- paste(Anipill$date, Anipill$hour)
 head(Anipill)
 
